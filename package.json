@@ -1,0 +1,16 @@
+{
+  "name": "egghead-react-tutorial",
+  "version": "1.0.0",
+  "description": "tutorial for learning react",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "webpack-dev-server"
+  },
+  "author": "Michael Cola",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6"
+  }
+}
