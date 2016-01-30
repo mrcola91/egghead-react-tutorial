@@ -14,13 +14,37 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <input type='text'
-          onChange={this.update} />
-        <h1>{this.state.txt}</h1>
+        <Slider update={this.update} />
+        <Slider update={this.update} />
+        <Slider update={this.update} />
+        <Slider update={this.update} />
       </div>
     );
   }
 }
+
+class Slider extends React.Component {
+  render() {
+    return (
+      <div>
+        <input type="range"
+          min="0"
+          max="255"
+          onChange={this.props.update} />
+      </div>
+    )
+  }
+}
+
+// const Widget = (props) => {
+//   return (
+//     <div>
+//       <input type="text"
+//         onChange={props.update} />
+//       <h1>{props.txt}</h1>
+//     </div>
+//   );
+// }
 
 // const App = () => <h1>Hello World</h1>
 
