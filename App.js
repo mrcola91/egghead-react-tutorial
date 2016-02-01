@@ -1,23 +1,77 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 class App extends React.Component {
-  render() {
-    return <Button>I <Heart/> React</Button>
-  }
-};
-
-class Button extends React.Component {
-  render() {
-    return(
-      <button>{this.props.children}</button>
+  constructor() {
+    super();
+    this.update = this.update.bind(this);
+    this.state = { val: 0 };
+  };
+  update() {
+    this.setState({ val: this.state.val + 1 });
+  };
+  componentWillMount() {
+    console.log('will mount');
+  };
+  render(){
+    return (
+      <button onClick={ this.update }>
+        {this.props.txt} - { this.props.val }
+      </button>
     )
-  }
+  };
 };
-
-const Heart = () => <span className="glyphicon glyphicon-heart"></span>;
 
 export default App
 
+// App.defaultProps = {val: 0};
+// componentDidUpdate(prevProps, prevState) {
+//   console.log('prevProps', prevProps);
+// };
+// componentWillReceiveProps(nextProps) {
+//   this.setState({increasing: nextProps.val > this.props.val });
+// };
+// shouldComponentUpdate(nextProps, nextState) {
+//   return nextProps.val % 5 === 0;
+// };
+
+// componentWillMount() {
+//   this.setState({ m: 2 });
+// };
+
+// componentDidMount() {
+//   this.inc = setInterval(this.update, 500);
+// };
+// componentWillUnmount() {
+//   clearInterval(this.inc);
+// };
+
+// class Wrapper extends React.Component {
+//   constructor() {
+//     super();
+//   };
+//   mount() {
+//     ReactDOM.render(<App />, document.getElementById('a'));
+//   };
+//   unmount() {
+//     ReactDOM.unmountComponentAtNode(document.getElementById('a'));
+//   };
+//   render() {
+//     return (
+//       <div>
+//         <button onClick={ this.mount.bind(this) }>Mount</button>
+//         <button onClick={ this.unmount.bind(this) }>Unmount</button>
+//         <div id="a"></div>
+//       </div>
+//     )
+//   }
+// };
+// class Button extends React.Component {
+//   render(){
+//     return <button>{this.props.children}</button>
+//   }
+// }
+//
+// const Heart = () => <span className="glyphicon glyphicon-heart"></span>
 
 // constructor() {
 //   super();
